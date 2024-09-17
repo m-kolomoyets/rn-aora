@@ -10,4 +10,6 @@ export const COLORS = {
   black200: "hsl(232.5, 18.6%, 16.9%)",
 
   gray100: "hsl(240, 23.5%, 84.1%)",
+
+  white: "hsla(0, 0%, 100%, 1)",
 } as const;

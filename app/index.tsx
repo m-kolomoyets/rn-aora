@@ -1,17 +1,8 @@
-import { View, Text } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Link } from "expo-router";
-import Typography from "@/components/Typography";
+import Onboarding from "@/modules/Onboarding";
 
-const Home = () => {
-  return (
-    <SafeAreaView>
-      <Link href="/(tabs)/home">
-        <Typography>Go to Home</Typography>
-      </Link>
-    </SafeAreaView>
-  );
+const OnboardingPage = () => {
+  return <Onboarding />;
 };
 
-export default Home;
+export default OnboardingPage;
