@@ -6,11 +6,25 @@ import ProfileIcon from "@/components/Icons/components/ProfileIcon";
 import HomeIcon from "@/components/Icons/components/HomeIcon";
 import TabBarLabel from "@/components/TabBarLabel";
 import TabBarIcon from "@/components/TabBarIcon";
+import { COLORS } from "@/constants/colors";
 
 const TabsLayout: React.FC = () => {
   return (
     <>
-      <Tabs>
+      <Tabs
+        screenOptions={{
+          tabBarIconStyle: {
+            marginBottom: 4,
+          },
+          tabBarStyle: {
+            backgroundColor: COLORS.black100,
+            paddingTop: 16,
+            height: 84,
+            borderTopWidth: 1,
+            borderTopColor: COLORS.gray100,
+          },
+        }}
+      >
         <Tabs.Screen
           name="home"
           options={{
