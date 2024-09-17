@@ -8,8 +8,8 @@ import TitleAccentPath from "@/components/Icons/components/TitleAccentPath";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
 import s from "./Onboarding.styles";
-import onboardingCards from "../../assets/images/onboarding-cards.png";
-import logo from "../../assets/images/logo.png";
+import onboardingCards from "@/assets/images/onboarding-cards.png";
+import logo from "@/assets/images/logo.png";
 
 const Onboarding: React.FC = () => {
   const continuePressHandler = useCallback(() => {

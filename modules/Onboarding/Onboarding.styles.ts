@@ -1,6 +1,6 @@
-import { FONT_FAMILY } from "@/components/Typography/constants";
-import { COLORS } from "@/constants/colors";
 import { StyleSheet } from "react-native";
+import { COLORS } from "@/constants/colors";
+import { FONT_FAMILY } from "@/components/Typography/constants";
 
 export default StyleSheet.create({
   wrap: {
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 16,
+    paddingHorizontal: 24,
   },
   logo: {
     width: 115,
