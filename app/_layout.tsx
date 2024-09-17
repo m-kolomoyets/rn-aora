@@ -9,7 +9,14 @@ SplashScreen.preventAutoHideAsync();
 
 const RootLayout: React.FC = () => {
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    PoppinsBlack: require("../assets/fonts/Poppins-Black.ttf"),
+    PoppinsBold: require("../assets/fonts/Poppins-Bold.ttf"),
+    PoppinsExtraBold: require("../assets/fonts/Poppins-ExtraBold.ttf"),
+    PoppinsExtraLight: require("../assets/fonts/Poppins-ExtraLight.ttf"),
+    PoppinsLight: require("../assets/fonts/Poppins-Light.ttf"),
+    PoppinsMedium: require("../assets/fonts/Poppins-Medium.ttf"),
+    PoppinsRegular: require("../assets/fonts/Poppins-Regular.ttf"),
+    PoppinsSemiBold: require("../assets/fonts/Poppins-SemiBold.ttf"),
   });
 
   useEffect(() => {
