@@ -16,6 +16,7 @@ const Button: React.FC<ButtonProps> = ({
     <TouchableOpacity
       style={[s.wrap, s[variant], style, isLoading && s.loading]}
       disabled={rest?.disabled || isLoading}
+      activeOpacity={0.7}
       {...rest}
     >
       <Typography style={s[`${variant}Label`]} variant="subtitle-md">
