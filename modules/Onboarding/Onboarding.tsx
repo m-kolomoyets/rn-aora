@@ -1,7 +1,8 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { ScrollView, View, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import { router } from "expo-router";
 import { COLORS } from "@/constants/colors";
 import TitleAccentPath from "@/components/Icons/components/TitleAccentPath";
 import Typography from "@/components/Typography";
@@ -11,6 +12,10 @@ import onboardingCards from "../../assets/images/onboarding-cards.png";
 import logo from "../../assets/images/logo.png";
 
 const Onboarding: React.FC = () => {
+  const continuePressHandler = useCallback(() => {
+    router.push("/(auth)/sign-in");
+  }, []);
+
   return (
     <>
       <SafeAreaView style={s.wrap}>
@@ -32,13 +37,7 @@ const Onboarding: React.FC = () => {
             Where Creativity Meets Innovation: Embark on a Journey of Limitless
             Exploration with Aora
           </Typography>
-          <Button
-            onPress={() => {
-              console.log("Continue with Email");
-            }}
-          >
-            Continue with Email
-          </Button>
+          <Button onPress={continuePressHandler}>Continue with Email</Button>
         </ScrollView>
       </SafeAreaView>
       <StatusBar backgroundColor={COLORS.primary} style="light" />
