@@ -1,14 +1,19 @@
-import { Link } from "expo-router";
 import { View, Text } from "react-native";
+import { Link } from "expo-router";
+import Typography from "@/components/Typography";
+import s from "./Home.styles";
 
 const Home: React.FC = () => {
   return (
-    <View className="flex-1 justify-center items-center">
-      <Text className="text-black text-3xl font-poppins-bold">Home</Text>
+    <View style={s.wrap}>
+      <Typography style={s.title} variant="title-xl">
+        Home Page
+      </Typography>
+
       <Link href="/(home)/profile">
-        <Text className="text-blue-500 font-poppins-regular">
+        <Typography style={s.link} variant="subtitle-md">
           Go to profile
-        </Text>
+        </Typography>
       </Link>
     </View>
   );
