@@ -1,14 +1,14 @@
 import { memo } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, View, Image, Text } from "react-native";
-import TitleAccentPath from "@/components/Icons/components/TitleAccentPath";
-import Typography from "@/components/Typography";
-import s from "./Onboarding.styles";
-import logo from "../../assets/images/logo.png";
-import onboardingCards from "../../assets/images/onboarding-cards.png";
-import Button from "@/components/Button";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { COLORS } from "@/constants/colors";
+import TitleAccentPath from "@/components/Icons/components/TitleAccentPath";
+import Typography from "@/components/Typography";
+import Button from "@/components/Button";
+import s from "./Onboarding.styles";
+import onboardingCards from "../../assets/images/onboarding-cards.png";
+import logo from "../../assets/images/logo.png";
 
 const Onboarding: React.FC = () => {
   return (
