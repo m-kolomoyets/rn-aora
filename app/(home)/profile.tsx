@@ -1,4 +1,3 @@
-import React from "react";
 import Profile from "@/modules/Profile";
 
 const ProfileScreen: React.FC = () => {

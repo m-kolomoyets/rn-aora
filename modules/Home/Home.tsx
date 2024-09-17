@@ -1,12 +1,14 @@
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import s from "./Home.styles";
+import { Link } from "expo-router";
+import { View, Text } from "react-native";
 
 const Home: React.FC = () => {
   return (
-    <ThemedView style={s.wrap}>
-      <ThemedText type="title">Home</ThemedText>
-    </ThemedView>
+    <View className="flex-1 justify-center items-center">
+      <Text className="text-black text-3xl font-bold">Home</Text>
+      <Link href="/(home)/profile">
+        <Text className="text-blue-500">Go to profile</Text>
+      </Link>
+    </View>
   );
 };
 

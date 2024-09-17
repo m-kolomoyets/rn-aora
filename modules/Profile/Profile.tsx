@@ -1,13 +1,11 @@
+import { Text, View } from "react-native";
 import React from "react";
-import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "@/components/ThemedText";
-import s from "./Profile.styles";
 
 const Profile: React.FC = () => {
   return (
-    <ThemedView style={s.wrap}>
-      <ThemedText>Profile</ThemedText>
-    </ThemedView>
+    <View className="flex-1 justify-center items-center">
+      <Text className="text-3xl font-bold">Profile</Text>
+    </View>
   );
 };
 
