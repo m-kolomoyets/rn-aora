@@ -1,4 +1,5 @@
 import type { TextInputProps } from "react-native";
+import type { SvgProps } from "react-native-svg";
 
 export type InputFieldType = "text" | "password";
 
@@ -16,4 +17,8 @@ export type InputFieldProps = React.PropsWithoutRef<TextInputProps> & {
    * @default 'text'
    */
   type?: InputFieldType;
+  /**
+   * Custom icon addon
+   */
+  Icon?: React.FC<SvgProps>;
 };

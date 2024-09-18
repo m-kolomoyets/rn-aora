@@ -9,7 +9,7 @@ import EyeOnIcon from "@/components/Icons/components/EyeOnIcon";
 import s from "./InputField.styles";
 
 const InputField: React.ForwardRefRenderFunction<TextInput, InputFieldProps> = (
-  { label, errorMessage, style, type = "text", ...rest },
+  { label, errorMessage, style, type = "text", Icon, ...rest },
   ref
 ) => {
   const [isFocused, toggleIsFocused] = useToggle();
@@ -40,7 +40,8 @@ const InputField: React.ForwardRefRenderFunction<TextInput, InputFieldProps> = (
             toggleIsFocused(false);
           }}
         />
-        {isPasswordType ? (
+        {Icon ? <Icon style={s.addonIcon} /> : null}
+        {!Icon && isPasswordType ? (
           <TouchableOpacity
             onPress={() => {
               toggleIsPasswordVisible((prev) => {

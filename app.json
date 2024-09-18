@@ -31,9 +31,12 @@
       [
         "expo-asset",
         {
-          "assets": ["./assets/images"]
+          "assets": [
+            "./assets/images"
+          ]
         }
-      ]
+      ],
+      "react-native-video"
     ],
     "experiments": {
       "typedRoutes": true
