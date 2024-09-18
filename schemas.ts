@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { PASSWORD_REGEX } from "@/constants/regex";
 
 export const emailSchema = z
   .string({
