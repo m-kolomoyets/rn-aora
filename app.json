@@ -13,8 +13,7 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true,
-      "package": "com.kolo.aora"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
