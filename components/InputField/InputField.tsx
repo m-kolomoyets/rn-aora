@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  View,
-  TextInput,
-  TouchableHighlight,
-  TouchableOpacity,
-} from "react-native";
+import { View, TextInput, TouchableOpacity } from "react-native";
 import { useToggle } from "@react-hookz/web";
 import type { InputFieldProps } from "./types";
 import { COLORS } from "@/constants/colors";
