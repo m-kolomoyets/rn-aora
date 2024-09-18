@@ -1,0 +1,15 @@
+import { z } from "zod";
+import { PASSWORD_REGEX } from "@/constants/regex";
+
+export const emailSchema = z
+  .string({
+    required_error: "Email is required",
+  })
+  .email("Invalid email address");
+
+export const passwordSchema = z
+  .string({
+    required_error: "Password is required",
+  })
+  .min(8, "Password must be at least 8 characters long")
+  .max(20, "Password must be at most 20 characters long");
