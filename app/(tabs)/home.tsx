@@ -1,12 +1,8 @@
-import { View, Text } from "react-native";
 import React from "react";
+import Home from "@/modules/Home";
 
-const Home: React.FC = () => {
-  return (
-    <View>
-      <Text>Home</Text>
-    </View>
-  );
+const HomeScreen: React.FC = () => {
+  return <Home />;
 };
 
-export default Home;
+export default HomeScreen;

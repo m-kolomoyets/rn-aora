@@ -1,16 +1,19 @@
 import { memo, useRef } from "react";
 import { TextInput, View } from "react-native";
 import { Link, router } from "expo-router";
-import { useSignIn } from "@/hooks/api/useAuthApi";
+import { getMeQueryOptions, useSignIn } from "@/hooks/api/useAuthApi";
 import { useSignInForm } from "./hooks/useSignInForm";
 import { toast } from "@/utils/toast";
 import { InputField } from "@/components/InputField";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
 import s from "./SignIn.styles";
+import { useQueryClient } from "@tanstack/react-query";
 
 const SignIn: React.FC = () => {
   const passwordFieldRef = useRef<TextInput>(null);
+
+  const queryClient = useQueryClient();
 
   const {
     emailController: {
@@ -32,6 +35,8 @@ const SignIn: React.FC = () => {
         onSuccess() {
           // TODO: navigate to the main screen
           toast("Logged in successfully", { variant: "success" });
+
+          queryClient.prefetchQuery(getMeQueryOptions());
 
           router.replace("/(tabs)/home");
         },

@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { queryOptions, useMutation, useQuery } from "@tanstack/react-query";
 import { getMe, signIn, signOut, signUp } from "@/api/auth";
 import { ONE_MINUTE } from "@/constants";
 
@@ -18,12 +18,18 @@ export const useSignIn = () => {
   return mutation;
 };
 
-export const useGetMe = () => {
-  const query = useQuery({
+export const getMeQueryOptions = () => {
+  const query = queryOptions({
     queryKey: ["auth/me"],
     queryFn: getMe,
     staleTime: 10 * ONE_MINUTE,
   });
+
+  return query;
+};
+
+export const useGetMe = () => {
+  const query = useQuery(getMeQueryOptions());
 
   return query;
 };

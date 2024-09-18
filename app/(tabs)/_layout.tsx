@@ -17,11 +17,11 @@ const TabsLayout: React.FC = () => {
             marginBottom: 4,
           },
           tabBarStyle: {
-            backgroundColor: COLORS.black100,
+            backgroundColor: COLORS.primary,
             paddingTop: 16,
             height: 84,
             borderTopWidth: 1,
-            borderTopColor: COLORS.gray100,
+            borderTopColor: COLORS.black300,
           },
         }}
       >
