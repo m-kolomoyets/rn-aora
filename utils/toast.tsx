@@ -1,5 +1,6 @@
 import { toast as nativeToast } from "@backpackapp-io/react-native-toast";
 import type { ToastVariant } from "@/components/Toast/types";
+import { ONE_SECOND } from "@/constants";
 import Toast from "@/components/Toast";
 
 export type ToastOptions = {
@@ -19,6 +20,6 @@ export const toast = (message: string, options?: ToastOptions) => {
         />
       );
     },
-    duration: Infinity,
+    duration: 5 * ONE_SECOND,
   });
 };

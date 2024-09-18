@@ -7,6 +7,7 @@ import Typography from "@/components/Typography";
 import Button from "@/components/Button";
 import s from "./SignUp.styles";
 import { useSignUp } from "@/hooks/api/useAuthApi";
+import { toast } from "@/utils/toast";
 
 const SignUp: React.FC = () => {
   const emailFieldRef = useRef<TextInput>(null);
@@ -34,10 +35,10 @@ const SignUp: React.FC = () => {
     (data) => {
       signUp(data, {
         onSuccess() {
-          console.log(data);
+          toast("Account created successfully", { variant: "success" });
         },
         onError(error) {
-          console.log(error);
+          toast(error.message, { variant: "error" });
         },
       });
     },
@@ -96,7 +97,7 @@ const SignUp: React.FC = () => {
           }}
         />
       </View>
-      <Button onPress={submitHandler} isLoading={isSignUpPending}>
+      <Button isLoading={isSignUpPending} onPress={submitHandler}>
         Sign Up
       </Button>
       <View style={s.signInWrap}>

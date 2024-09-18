@@ -6,6 +6,8 @@ import { InputField } from "@/components/InputField";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
 import s from "./SignIn.styles";
+import { useSignIn } from "@/hooks/api/useAuthApi";
+import { toast } from "@/utils/toast";
 
 const SignIn: React.FC = () => {
   const passwordFieldRef = useRef<TextInput>(null);
@@ -22,9 +24,19 @@ const SignIn: React.FC = () => {
     handleSubmit,
   } = useSignInForm();
 
+  const { mutate: signIn, isPending: isSignInPending } = useSignIn();
+
   const submitHandler = handleSubmit(
     (data) => {
-      console.log(data);
+      signIn(data, {
+        onSuccess() {
+          // TODO: navigate to the main screen
+          toast("Logged in successfully", { variant: "success" });
+        },
+        onError(error) {
+          toast(error.message, { variant: "error" });
+        },
+      });
     },
     (err) => {
       console.log(err);
@@ -69,7 +81,9 @@ const SignIn: React.FC = () => {
       <Typography style={s.forgotPassword} variant="subtitle-md">
         Forgot password?
       </Typography>
-      <Button onPress={submitHandler}>Log In</Button>
+      <Button isLoading={isSignInPending} onPress={submitHandler}>
+        Log In
+      </Button>
       <View style={s.signUpWrap}>
         <Typography style={s.signUpLabel} variant="subtitle-md">
           Don't have an account?{" "}

@@ -83,3 +83,7 @@ export const getMe = async () => {
 
   return JSON.parse(user) as User;
 };
+
+export const signOut = async () => {
+  await AsyncStorage.removeItem(ASYNC_STORAGE_LOGGED_USER_EMAIL_KEY);
+};
