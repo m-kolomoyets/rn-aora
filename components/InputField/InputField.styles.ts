@@ -11,6 +11,7 @@ export default StyleSheet.create({
   inputWrap: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     gap: 8,
     paddingVertical: 16,
     paddingHorizontal: 18,
