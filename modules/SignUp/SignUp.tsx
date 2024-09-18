@@ -6,6 +6,7 @@ import { InputField } from "@/components/InputField";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
 import s from "./SignUp.styles";
+import { useSignUp } from "@/hooks/api/useAuthApi";
 
 const SignUp: React.FC = () => {
   const emailFieldRef = useRef<TextInput>(null);
@@ -27,9 +28,18 @@ const SignUp: React.FC = () => {
     handleSubmit,
   } = useSignUpForm();
 
+  const { mutate: signUp, isPending: isSignUpPending } = useSignUp();
+
   const submitHandler = handleSubmit(
     (data) => {
-      console.log(data);
+      signUp(data, {
+        onSuccess() {
+          console.log(data);
+        },
+        onError(error) {
+          console.log(error);
+        },
+      });
     },
     (err) => {
       console.log(err);
@@ -86,7 +96,9 @@ const SignUp: React.FC = () => {
           }}
         />
       </View>
-      <Button onPress={submitHandler}>Sign Up</Button>
+      <Button onPress={submitHandler} isLoading={isSignUpPending}>
+        Sign Up
+      </Button>
       <View style={s.signInWrap}>
         <Typography style={s.signInLabel} variant="subtitle-md">
           Already have an account?{" "}

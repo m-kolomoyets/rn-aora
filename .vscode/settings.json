@@ -6,6 +6,7 @@
     "hookform",
     "hookz",
     "nativewind",
-    "tailwindcss"
+    "tailwindcss",
+    "tanstack"
   ]
 }

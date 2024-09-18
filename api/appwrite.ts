@@ -1,9 +1,8 @@
-import { Client } from "react-native-appwrite";
-import Config from "react-native-config";
+import { Account, Client } from "react-native-appwrite";
 
 const client = new Client()
-  .setEndpoint(Config.APPWRITE_ENDPOINT)
-  .setProject(Config.APPWRITE_PROJECT)
-  .setPlatform(Config.APPWRITE_PLATFORM);
+  .setEndpoint(process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT)
+  .setProject(process.env.EXPO_PUBLIC_APPWRITE_PROJECT)
+  .setPlatform(process.env.EXPO_PUBLIC_APPWRITE_PLATFORM);
 
-export default client;
+export const account = new Account(client);
