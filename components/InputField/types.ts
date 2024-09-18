@@ -2,7 +2,7 @@ import type { TextInputProps } from "react-native";
 
 export type InputFieldType = "text" | "password";
 
-export type InputFieldProps = TextInputProps & {
+export type InputFieldProps = React.PropsWithoutRef<TextInputProps> & {
   /**
    * Label for the input field
    */

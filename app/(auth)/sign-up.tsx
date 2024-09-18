@@ -1,12 +1,8 @@
-import { View, Text } from "react-native";
 import React from "react";
+import SignUp from "@/modules/SignUp";
 
-const SignUp: React.FC = () => {
-  return (
-    <View>
-      <Text>SignUp</Text>
-    </View>
-  );
+const SignUpScreen: React.FC = () => {
+  return <SignUp />;
 };
 
-export default SignUp;
+export default SignUpScreen;

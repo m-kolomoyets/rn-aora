@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 import { useToggle } from "@react-hookz/web";
 import type { InputFieldProps } from "./types";
@@ -8,13 +8,10 @@ import EyeOffIcon from "@/components/Icons/components/EyeOffIcon";
 import EyeOnIcon from "@/components/Icons/components/EyeOnIcon";
 import s from "./InputField.styles";
 
-const InputField: React.FC<InputFieldProps> = ({
-  label,
-  errorMessage,
-  style,
-  type = "text",
-  ...rest
-}) => {
+const InputField: React.ForwardRefRenderFunction<TextInput, InputFieldProps> = (
+  { label, errorMessage, style, type = "text", ...rest },
+  ref
+) => {
   const [isFocused, toggleIsFocused] = useToggle();
   const [isPasswordVisible, toggleIsPasswordVisible] = useToggle();
 
@@ -29,6 +26,7 @@ const InputField: React.FC<InputFieldProps> = ({
       ) : null}
       <View style={[s.inputWrap, isFocused && s.inputFocused]}>
         <TextInput
+          ref={ref}
           secureTextEntry={isPasswordType && !isPasswordVisible}
           style={s.input}
           selectionColor={COLORS.secondary100}
@@ -67,4 +65,4 @@ const InputField: React.FC<InputFieldProps> = ({
   );
 };
 
-export default InputField;
+export default forwardRef(InputField);

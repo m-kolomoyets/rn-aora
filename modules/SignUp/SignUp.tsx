@@ -1,16 +1,21 @@
 import { memo, useRef } from "react";
 import { TextInput, View } from "react-native";
 import { Link } from "expo-router";
-import { useSignInForm } from "./hooks/useSignInForm";
+import { useSignUpForm } from "./hooks/useSignUpForm";
 import { InputField } from "@/components/InputField";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
-import s from "./SignIn.styles";
+import s from "./SignUp.styles";
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
+  const emailFieldRef = useRef<TextInput>(null);
   const passwordFieldRef = useRef<TextInput>(null);
 
   const {
+    usernameController: {
+      field: usernameField,
+      fieldState: { error: usernameError },
+    },
     emailController: {
       field: emailField,
       fieldState: { error: emailError },
@@ -20,7 +25,7 @@ const SignIn: React.FC = () => {
       fieldState: { error: passwordError },
     },
     handleSubmit,
-  } = useSignInForm();
+  } = useSignUpForm();
 
   const submitHandler = handleSubmit(
     (data) => {
@@ -34,15 +39,30 @@ const SignIn: React.FC = () => {
   return (
     <View style={s.wrap}>
       <Typography style={s.title} variant="title-lg">
-        Sign in
+        Sign up
       </Typography>
       <View style={s.fieldsWrap}>
         <InputField
+          label="Username"
+          placeholder="Enter your unique username"
+          keyboardType="default"
+          returnKeyType="next"
+          value={usernameField.value}
+          errorMessage={usernameError?.message}
+          onChange={(event) => {
+            usernameField.onChange(event.nativeEvent.text);
+          }}
+          onSubmitEditing={() => {
+            emailFieldRef.current?.focus();
+          }}
+        />
+        <InputField
+          ref={emailFieldRef}
           label="Email"
           placeholder="Enter your email"
           autoComplete="email"
-          keyboardType="email-address"
           returnKeyType="next"
+          keyboardType="email-address"
           value={emailField.value}
           errorMessage={emailError?.message}
           onChange={(event) => {
@@ -57,8 +77,8 @@ const SignIn: React.FC = () => {
           label="Password"
           placeholder="Enter your password"
           type="password"
-          keyboardType="visible-password"
           returnKeyType="done"
+          keyboardType="visible-password"
           value={passwordField.value}
           errorMessage={passwordError?.message}
           onChange={(event) => {
@@ -66,16 +86,13 @@ const SignIn: React.FC = () => {
           }}
         />
       </View>
-      <Typography style={s.forgotPassword} variant="subtitle-md">
-        Forgot password?
-      </Typography>
-      <Button onPress={submitHandler}>Log In</Button>
-      <View style={s.signUpWrap}>
-        <Typography style={s.signUpLabel} variant="subtitle-md">
-          Don't have an account?{" "}
-          <Link href="/(auth)/sign-up" push>
-            <Typography style={s.singUpLink} variant="subtitle-md">
-              Sign up
+      <Button onPress={submitHandler}>Sign Up</Button>
+      <View style={s.signInWrap}>
+        <Typography style={s.signInLabel} variant="subtitle-md">
+          Already have an account?{" "}
+          <Link href="/(auth)/sign-in" push>
+            <Typography style={s.singInLink} variant="subtitle-md">
+              Login
             </Typography>
           </Link>
         </Typography>
@@ -84,4 +101,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default memo(SignIn);
+export default memo(SignUp);
