@@ -1,5 +1,7 @@
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Toasts } from "@backpackapp-io/react-native-toast";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import { useLoadFonts } from "@/hooks/useLoadFonts";
@@ -24,12 +26,18 @@ const RootLayout: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="search/[query]" options={{ headerShown: false }} />
-      </Stack>
+      <GestureHandlerRootView>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="search/[query]"
+            options={{ headerShown: false }}
+          />
+        </Stack>
+        <Toasts />
+      </GestureHandlerRootView>
     </QueryClientProvider>
   );
 };
